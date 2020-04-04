@@ -143,3 +143,38 @@ pd.read_csv(url)
 Ya puedes entrar de llenos al curso y empezar a implementar tus primeros modelos de machine learning!
 
 Para más información ver la guía [Configuración del ambiente de trabajo con Google Collab](setup-environment.pdf). Abrirla en un navegador.
+
+## Qué es y cómo se utiliza Numpy
+
+Datos importantes:
+
+- **Numpy** es una librería muy importante para el ecosistema de **Python** ya que es la base de todos los cálculos científicos y muchas de las librerías de **Machine Learning**.
+- **Scikit-Learn** con sus modelos, cuando retorna un resultado, en general lo retorna en un formato Numpy.
+- La API de **Numpy** tiene muchas similitudes con **Pandas**.
+- **Numpy** reemplaza de forma más eficiente lo que podría ser un tipo lista. En las listas podemos tener conjuntos de elementos numéricos. Sin embargo las listas no logran manejar datos de dos dimensiones.
+- Las listas no poseen métodos que son prácticos para hacer aritmética.
+- Es importante saber que otros lenguajes de programación poseen librerías altamente optimizadas para hacer cálculos numéricos con vectores de datos. **Numpy** es esa librería para el lenguaje de programación de **Python**.
+- **`np.linspace`** es una función que permite crear un array de una dimensión de números entre `0 y 1`.
+- Los **array** a diferencia de otros objetos en Python están fuertemente tipificados. Esta tipificación fuerte es necesaria porque es una de las cosas que permite que esta librería sea más rápida que ocupar listas, por ejemplo.
+
+* `list` No tiene buen manejo para los índices cuando se trabaja _con listas de datos de más de dos dimensiones_
+* `list` no podee métodos de álgebra lineal, ni de transformaciones de datos
+* En otros lenguajes encontramos estructuras de librerías de datos altamente optimizadas para poder hacer operaciones algebraicas sobre arrays.
+
+Por eso Numpy se erige todo un ecosistema de librería muy útiles que se utilizaran en este curso.
+
+### Crear Arrays
+
+```py
+#importar la librería
+numpy as np
+
+a1 = np.array([1,2,3,4]) # Con una lista
+
+```
+
+Algunas sugerencias de manejo de python para Data Science
+
+![Python for DataScience](assets/python_datascientist.png)
+
+_En PDF (PythonForDataScience.pdf)[https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PythonForDataScience.pdf]_
