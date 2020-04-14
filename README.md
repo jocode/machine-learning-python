@@ -177,4 +177,76 @@ Algunas sugerencias de manejo de python para Data Science
 
 ![Python for DataScience](assets/python_datascientist.png)
 
-_En PDF (PythonForDataScience.pdf)[https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PythonForDataScience.pdf]_
+_En PDF [PythonForDataScience.pdf](https://s3.amazonaws.com/assets.datacamp.com/blog_assets/PythonForDataScience.pdf)_
+
+## :two: Preparación de los datos
+
+_Podemos usar la referncia de la clase en [09 Preparación de los datos.ipynb](https://github.com/JuanPabloMF/machine-learning-platzi/blob/master/09%20Preparación%20de%20los%20datos.ipynb)_
+
+### Cargar los datos necesarios para el proyecto.
+
+Las librerías con las que vamos a trabajar y que tenemos que cargar son:
+
+- **Numpy**
+- **Pandas**
+- **Matplotlib.pyplot**
+- **Seaborn**
+
+#### Cargar el dataset usando Google Colab
+
+```py
+# Cargar el dataset desde drive
+from google.colab import drive
+drive.mount('/content/drive')
+```
+
+Aparecerá unas indicaciones con un URL y un espacio para un código de autorización que obtienen del URL. Copian y pegan el código en el cuadro correspondiente para obtener los permisos
+
+Una vez hagan esto pueden acceder a sus archivos en su drive desde colab usando:
+
+**`movies = pd.read_csv('drive/My Drive/', encoding = ‘utf-8’)`**, donde `drive/My Drive/` es la ruta raíz en drive.
+
+```py
+movies = pd.read_csv('drive/My Drive/Colab Notebooks/datasets/machine_learning_python/peliculas.csv', encoding='utf-8')
+```
+
+### Inspección de los tipos de datos
+
+**Datos importantes:**
+
+- La **inspección de los datos** se da para tener conocimiento de la salud de los datos que tenemos, saber si vienen limpios o no, y también porque se quiere tener un entendimiento cuantitativo de ellos. Parte de esto es mirar gráficos estadísticos y entender diferentes propiedades numéricas de las columnas.
+- A diferencia de **Numpy**, **Pandas** no solo permite cargar datos numéricos, sino también datos de texto.
+- El método info nos va a mostrar la cantidad completa de columnas con la cantidad de elementos no nulos que hay en esas columnas, y por último muestra el tipo de cada columna.
+
+### Inspección cuantitativa y de salud de los datos
+
+Se realiza la inspección de los datos en la cantidad de recursos que ha costado realizar la producción de la película donde nos encontramos que no se tuvo en cuenta el tipo de moneda utilizada. Para ello, tocó recurrir a otro dataset de la base de datos `thenumbers.com` para luego hacer un merge entre ambas base de datos usando la segunda (thenumber) como el dataset principal y trayendo los datos del dataset (movies)
+
+Para tener en cuenta al **borrar una columna**
+
+```py
+movies_num.drop(['movie_title'], axis=1)
+movies_num
+```
+
+### Manejo de datos faltantes
+
+Para obtener los datos faltantes es poder saber cuántos datos faltantes existen por columnas, y en base a ello se toman las estrategias.
+
+En el caso de las features que no son la variable objetivo una mejor solución para lidiar con los datos faltantes es **remplazar estos datos por otros que sean manejables** y no afecten la calidad de las predicciones.
+
+- _La estrategia más comun es utilizar la media de todos los ejemplos para la feature dada._ Usando sklearn con la estrategia `strategy='mean'`
+
+> En caso que no funcione la importación de sklearn Imputer, puede que la librería se haya actualizado desde el momento que se grabo la clase. Así que se puede reemplazar.
+
+```py
+from sklearn.preprocessing import Imputer
+imputer = Imputer(missing_values=np.nan,strategy = 'mean', axis=1)
+```
+
+Por el siguiente
+
+```py
+from sklearn.impute import SimpleImputer
+imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
+```
