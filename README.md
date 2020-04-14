@@ -163,6 +163,8 @@ Datos importantes:
 
 Por eso Numpy se erige todo un ecosistema de librería muy útiles que se utilizaran en este curso.
 
+:blue_book: La guía de esta etapa estpa en el cuaderno [ Introducción_a_python_científico.ipynb](https://github.com/jocode/machine-learning-python/blob/master/Introducción_a_python_científico.ipynb)
+
 ### Crear Arrays
 
 ```py
@@ -181,7 +183,9 @@ _En PDF [PythonForDataScience.pdf](https://s3.amazonaws.com/assets.datacamp.com/
 
 ## :two: Preparación de los datos
 
-_Podemos usar la referncia de la clase en [09 Preparación de los datos.ipynb](https://github.com/JuanPabloMF/machine-learning-platzi/blob/master/09%20Preparación%20de%20los%20datos.ipynb)_
+:blue_book: La descripción paso a paso de esta etapa está en el notebook [ Preparación_de_los_datos.ipynb](https://github.com/jocode/machine-learning-python/blob/master/Preparación_de_los_datos.ipynb)
+
+_Ó podemos usar la referncia de la clase en [09 Preparación de los datos.ipynb](https://github.com/JuanPabloMF/machine-learning-platzi/blob/master/09%20Preparación%20de%20los%20datos.ipynb)_
 
 ### Cargar los datos necesarios para el proyecto.
 
