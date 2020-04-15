@@ -89,7 +89,7 @@ Este no es el final del proceso, se debe iterar hasta que en alguna de las itera
 
 > El **Feature Engineering** es muy importante; algunos expertos mencionan que todo el arte del Machine Learning está en definir bien los features
 
-## Montar un ambiente de trabajo Pydata
+## :one: Montar un ambiente de trabajo Pydata
 
 En este curso utilizaremos **Jupyter Notebooks** y el **stack Pydata**, que incluye las librerías _Numpy, Pandas, Matplotlib y Scikit-learn_.
 
@@ -254,3 +254,73 @@ Por el siguiente
 from sklearn.impute import SimpleImputer
 imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 ```
+
+## :three: Modelación y evaluación
+
+### El objeto estimador de Scikit-Learn
+
+**Datos importantes:**
+
+- Por como fue diseñado **`Scikit-Learn`**, existe una API muy fácil de ocupar y muy unificada. Esta unificación se da por un objeto que se llama “estimador” que tiene en todos los casos y para el algoritmo de Machine Learning que sea, una API que es común y 3 métodos que son clave.
+- **Scikit-Learn** posee muchos modelos, se pueden implementar tanto, regresiones lineales como regresiones regularizadas, árboles de decisión, SDMs, etc.
+- **Scikit-Learn** contiene todos los modelos que son usados hoy en día, y una de las virtudes de esta librería es que sigue muy de cerca lo que pasa en la investigación.
+- **Scikit-Learn** es la librería más usada de _Machine Learning General_, no de _Machine Learning Especializado_, para ello está la librería de **Tensor Flow** y sirve casi exclusivamente para **_modelos de Deep Learning_**.
+
+* **SciKit-Learn**: Modelos Machie Learning
+* **Tensor Flow**: Modelos Deep Learning.
+
+Los datos de entrenamiento se deben separar, dependiendo de la cantidad de datos se toma un porcentaje para entrenar(70%-80%) y otro para hacer test. Ésta operación entrega 4 salidas -Datos de entrenamiento, target de entrenamiento, datos de test y target de test-
+**fit**: Entrenar un modelo, se necesitan datos de entrenamiento (matriz), los datos o valores(vector) objetivos (target).
+**Predict**: Método para obtener predicciones del modelo ya entrenado, ingresa un valor nuevo y predice una salida.
+**Score**: con los datos de test podemos obtener una métrica de performance.
+
+:star: [Cheat Sheet scikit-learn](https://scikit-learn.org/stable/tutorial/machine_learning_map/index.html)
+
+![Mapa de Modelos de Machibe learning](https://github.com/JuanPabloMF/machine-learning-platzi/blob/master/img/ml_map.png?raw=true)
+_Ruta para escoger el modelo de Machine Learing_
+
+### Implementar un modelo de regresión (Lasso)
+
+```py
+X = pd.read_csv('drive/My Drive/Colab Notebooks/datasets/machine_learning_python/intermediate_results/X.csv')
+
+y = X['worldwide_gross']
+X = X.drop('worldwide_gross', axis=1) # Eliminamos esa columna
+
+# Importamos SckitLearn
+from sklearn.model_selection import train_test_split
+
+# Los datos de test se colocan en 40%
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4, random_state=11)
+
+# Verificamos la cantidad de datos
+print(len(X))
+print(len(X_train))
+print(len(X_test))
+
+
+# Ahora sí implementamos el modelo
+# Implementación del Modelo usando una regresión lasso
+from sklearn.linear_model import Lasso
+
+# Se instancia el modelo Lasso
+model = Lasso()
+```
+
+### Ajustando Modelos de Machine Learning, Underfitting y Overfitting
+
+- **Underfitting:** Modelo usado muy simple, no logra capturar el patrón que siguen los datos. Se equivoca con los datos de entrenamiento y con los datos de test.
+
+- **Overfitting:** El error de entrenamiento va a ser bajo, pero el error de test es muy alto. Modelo muy ajustado a los datos de entrenamiento. Modelo muy complejo.
+
+- **Lo que buscamos:** Queremos un error de entrenamiento bajo, un error de test bajo y la diferencia entre los dos errores también debería ser bajo. Se busca un polinomio no tan basico ni tan complejo.
+
+* En el polinomio de grado 1 tiene un error alto en los datos de entrenamiento y los de test
+* En los polinimios de grado 10, tienen un error bajo en los datos de entrenamiento y alto en los datos de test
+* Un polinomio de grado 2 se puede lograr que el error de entrenamiento sea bajo, que el error de prueba sea bajo y que la diferencia entre los dos errores sea la mas mínima posible, en otras palabras mucho menor que 1.
+
+### Evaluando el modelo
+
+Se grafica los resultados obtenidos en el modelo para verificar si los datos analizados son correctos
+
+[Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)
