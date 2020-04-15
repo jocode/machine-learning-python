@@ -326,3 +326,21 @@ model = Lasso()
 Se grafica los resultados obtenidos en el modelo para verificar si los datos analizados son correctos
 
 [Anscombe's quartet](https://en.wikipedia.org/wiki/Anscombe%27s_quartet)
+
+## :four: Feature Engineering
+
+### Feedback del modelamiento
+
+El diseño del feature puede llegar a ser más importante que la optimización del modelo de ML
+
+Una feature es agregar una nueva columna a nuestra tabla de datos.
+
+:blue_book: [Diseñando buenos features](https://github.com/jocode/machine-learning-python/blob/master/Cómo_diseñar_buenos_features_y_maldición_de_la_dimensión.ipynb)
+
+**Principios de diseños de features**
+
+Diseñar tus features es un arte más que una ciencia (por lo que en general te recomendamos ganar experiencia leyendo articulos cientificos y viendo soluciones
+
+1. **Features Informativas:** Tus features son más utiles mientras más correlación tengan tu variable objetivo.
+2. **Features Independientes:** Para no tener redudancias tus features deberían ser lo más independientes posible entre ellas.
+3. **Cantidad de Features controlada:** Nuestra intuición nos falla en dimensiones superiores a 3 (ver video maldicion de la dimensionalidad). En la mayoría de los casos aumentar la cantidad de features afecta negativamente la performance si no contamos con una gran cantidad de datos. Por ultimo pocas features aseguran una mejor interpretabilidad de los modelos
