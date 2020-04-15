@@ -257,6 +257,8 @@ imputer = SimpleImputer(missing_values=np.nan, strategy='mean')
 
 ## :three: Modelación y evaluación
 
+:blue_book: [Modelamiento y evaluación](https://github.com/jocode/machine-learning-python/blob/master/Modelamiento_y_evaluación.ipynb)
+
 ### El objeto estimador de Scikit-Learn
 
 **Datos importantes:**
