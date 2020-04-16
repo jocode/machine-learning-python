@@ -344,3 +344,27 @@ Diseñar tus features es un arte más que una ciencia (por lo que en general te 
 1. **Features Informativas:** Tus features son más utiles mientras más correlación tengan tu variable objetivo.
 2. **Features Independientes:** Para no tener redudancias tus features deberían ser lo más independientes posible entre ellas.
 3. **Cantidad de Features controlada:** Nuestra intuición nos falla en dimensiones superiores a 3 (ver video maldicion de la dimensionalidad). En la mayoría de los casos aumentar la cantidad de features afecta negativamente la performance si no contamos con una gran cantidad de datos. Por ultimo pocas features aseguran una mejor interpretabilidad de los modelos
+
+## Análisis exploratorio
+
+Cómo analizar y seleccionar los features
+
+:blue_book: [Análisis y selección de los features](https://github.com/jocode/machine-learning-python/blob/master/Análisis_y_selección_de_los_Features.ipynb)
+
+### Creación de features
+
+:blue_book: [Creación y transformación de features](https://github.com/jocode/machine-learning-python/blob/master/Creación_y_transformación_de_features.ipynb)
+
+Creación de features y transformación de los features existentes.
+
+Las **features categoricas** son features que tienen valores dentro de un conjunto finito,como por ejemplo de que país viene la persona, el género de la persona o el nivel académico.
+
+### Selección de features y la maldición de la dimensionalidad
+
+Conocimientos para machine learning:
+
+- Matemáticas
+- Computación
+- Experticia de dominio.
+- La creación manual de features generan un gran efecto.
+- Incluso más importante que la experticia y los modelos a usar, está la calidad de los datos.
